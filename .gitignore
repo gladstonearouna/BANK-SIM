@@ -1,0 +1,25 @@
+
+# Dépendances installables avec Composer
+/vendor/
+/composer.phar
+
+# Fichiers locaux et secrets
+.env
+.env.*
+!.env.example
+/config.local.php
+/config.php
+/mail_config.php
+
+# Fichiers temporaires
+*.log
+desktop.ini
+
+# Scripts de test ou de réinitialisation
+/creer_roles_test.php
+/reset_conseiller.php
+/session_test.php
+/session_test2.php
+/test_email.php
+/test_password.php
+/test_retrait.php

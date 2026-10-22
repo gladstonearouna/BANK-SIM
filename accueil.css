@@ -1,0 +1,496 @@
+
+/* =========================================
+   BANK-SIM — DESIGN PREMIUM
+   Bleu nuit, ivoire et touches dorées
+========================================= */
+
+/* Typographies élégantes BANK-SIM */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2,
+h3,
+.logo {
+    font-family: 'Playfair Display', serif;
+}
+
+.menu,
+.btn,
+.hero-text,
+.service-card p,
+.about p,
+.footer p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --bleu-nuit: #101B32;
+    --bleu: #1B2A46;
+    --bleu-doux: #263955;
+    --or: #D8B56D;
+    --or-fonce: #AD8742;
+    --ivoire: #F5F0E6;
+    --ivoire-clair: #FBF9F4;
+    --blanc: #FFFFFF;
+    --texte: #243044;
+    --texte-secondaire: #707786;
+    --bordure: #E7DECD;
+    --ombre: 0 16px 45px rgba(16, 27, 50, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--ivoire-clair);
+    color: var(--texte);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================
+   BARRE DU HAUT — BLEU NUIT
+========================================= */
+
+.navbar {
+    position: relative;
+    z-index: 10;
+    min-height: 88px;
+    padding: 17px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    flex-wrap: wrap;
+
+    background: var(--bleu-nuit);
+    border-bottom: 2px solid var(--or);
+    box-shadow: 0 5px 24px rgba(16, 27, 50, 0.15);
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ivoire);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    color: var(--bleu-nuit);
+    background: var(--or);
+    border: 1px solid var(--or);
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    color: var(--ivoire);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--or);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   BOUTONS
+========================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    padding: 11px 21px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    color: var(--bleu-nuit);
+    background: var(--or);
+    border: 1px solid var(--or);
+}
+
+.btn-primary:hover {
+    background: #E6C989;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(216, 181, 109, 0.2);
+}
+
+.btn-outline {
+    color: var(--ivoire);
+    background: transparent;
+    border: 1px solid var(--or);
+}
+
+.btn-outline:hover {
+    color: var(--bleu-nuit);
+    background: var(--or);
+}
+
+.btn-light {
+    color: var(--bleu-nuit);
+    background: var(--ivoire);
+    border: 1px solid var(--ivoire);
+}
+
+.btn-light:hover {
+    background: var(--blanc);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   SECTION D'ACCUEIL
+========================================= */
+
+.hero {
+    min-height: 540px;
+    padding: 75px 7%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 55px;
+    background: linear-gradient(
+        135deg,
+        var(--ivoire) 0%,
+        var(--ivoire-clair) 65%,
+        #EDE5D5 100%
+    );
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: var(--or-fonce);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    margin-bottom: 22px;
+    color: var(--bleu-nuit);
+    font-size: clamp(34px, 4vw, 55px);
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: var(--or-fonce);
+}
+
+.hero-text {
+    max-width: 570px;
+    margin-bottom: 28px;
+    color: var(--texte-secondaire);
+    font-size: 17px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.security-note {
+    margin-top: 24px;
+    color: var(--bleu);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.hero-image {
+    width: 100%;
+    min-height: 330px;
+    overflow: hidden;
+    border: 5px solid var(--blanc);
+    border-radius: 18px;
+    box-shadow: var(--ombre);
+}
+
+.hero-image img {
+    display: block;
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+}
+
+/* =========================================
+   SERVICES
+========================================= */
+
+.services {
+    padding: 85px 7%;
+    background: var(--ivoire-clair);
+}
+
+.section-heading {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-heading h2,
+.about h2 {
+    margin-bottom: 15px;
+    color: var(--bleu-nuit);
+    font-size: clamp(27px, 3vw, 38px);
+    line-height: 1.25;
+}
+
+.section-heading p {
+    color: var(--texte-secondaire);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    padding: 32px 26px;
+    background: var(--blanc);
+    border: 1px solid var(--bordure);
+    border-radius: 13px;
+    box-shadow: 0 8px 28px rgba(16, 27, 50, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--ombre);
+}
+
+.service-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 20px;
+    display: grid;
+    place-items: center;
+    color: var(--bleu-nuit);
+    background: var(--ivoire);
+    border: 1px solid var(--bordure);
+    border-radius: 12px;
+    font-size: 25px;
+}
+
+.service-card h3 {
+    margin-bottom: 12px;
+    color: var(--bleu-nuit);
+    font-size: 20px;
+}
+
+.service-card p {
+    color: var(--texte-secondaire);
+    font-size: 14px;
+}
+
+/* =========================================
+   SECTION À PROPOS
+========================================= */
+
+.about {
+    padding: 70px 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 45px;
+    background: var(--ivoire);
+    border-top: 1px solid var(--bordure);
+}
+
+.about p {
+    color: var(--texte-secondaire);
+    font-size: 16px;
+}
+
+/* =========================================
+   BAS DE PAGE — BLEU NUIT
+========================================= */
+
+.footer {
+    padding: 45px 7% 25px;
+    color: var(--ivoire);
+    background: var(--bleu-nuit);
+    border-top: 3px solid var(--or);
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 15px;
+}
+
+.footer p {
+    margin-top: 10px;
+    color: #D6DCE6;
+    font-size: 14px;
+}
+
+.footer .copyright {
+    margin-top: 25px;
+    padding-top: 20px;
+    color: #AEB8C8;
+    border-top: 1px solid rgba(245, 240, 230, 0.15);
+    font-size: 12px;
+}
+
+/* =========================================
+   ADAPTATION AUX TABLETTES
+========================================= */
+
+@media (max-width: 1100px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .hero {
+        gap: 30px;
+        padding: 60px 5%;
+    }
+
+    .menu {
+        gap: 17px;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   ADAPTATION AUX TÉLÉPHONES
+========================================= */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 20px 5%;
+        gap: 18px;
+    }
+
+    .menu {
+        gap: 15px;
+    }
+
+    .menu a {
+        font-size: 13px;
+    }
+
+    .actions {
+        width: 100%;
+    }
+
+    .actions .btn {
+        flex: 1;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 45px 6%;
+        gap: 35px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+    .hero-image img {
+        height: 270px;
+    }
+
+    .services {
+        padding: 60px 6%;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        padding: 55px 6%;
+        gap: 15px;
+    }
+
+    .footer {
+        padding: 35px 6% 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .menu {
+        gap: 12px;
+    }
+
+    .menu a {
+        font-size: 12px;
+    }
+}
