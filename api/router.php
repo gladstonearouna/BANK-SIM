@@ -1,5 +1,7 @@
 
 <?php
+ob_start();
+
 $file = $_GET['file'] ?? '';
 
 if (
