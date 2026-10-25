@@ -2,17 +2,13 @@
 
 session_start();
 
-require_once __DIR__ . '/config.php'; //require_once "config.php";//
-
-// Création du jeton CSRF
+// Générer le jeton CSRF
 if (empty($_SESSION["csrf_token"])) {
     $_SESSION["csrf_token"] = bin2hex(random_bytes(32));
 }
 
 $csrf_token = $_SESSION["csrf_token"];
-
 $erreur = "";
-
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -24,62 +20,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         !hash_equals($_SESSION["csrf_token"], $csrf_recu)
     ) {
         http_response_code(403);
-        exit("Requête refusée. Veuillez recharger la page et réessayer.");
+        exit("Requête refusée. Rechargez la page et réessayez.");
     }
 
     $email = trim($_POST["email"] ?? "");
     $mot_de_passe = $_POST["mot_de_passe"] ?? "";
 
+    // Compte de démonstration : aucune base de données nécessaire
+    $email_demo = "demo@banksim.test";
+    $mot_de_passe_demo = "DemoBank2026!";
 
-
-    $sql = "SELECT *
-            FROM users
-            WHERE EMAIL = :email
-            AND ACTIF = 1";
-
-    $stmt = $pdo->prepare($sql);
-
-    $stmt->execute([
-        ":email" => $email
-    ]);
-
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($user && password_verify($mot_de_passe, $user["MOT_DE_PASSE_HASH"])) {
-
+    if (
+        is_string($email) &&
+        is_string($mot_de_passe) &&
+        hash_equals($email_demo, $email) &&
+        hash_equals($mot_de_passe_demo, $mot_de_passe)
+    ) {
+        // Créer une nouvelle session après connexion
         session_regenerate_id(true);
 
-        $_SESSION["user_id"] = $user["ID"];
-        $_SESSION["client_id"] = $user["CLIENT_ID"];
-        $_SESSION["role"] = $user["ROLE"];
+        $_SESSION["user_id"] = "demo-001";
+        $_SESSION["client_id"] = "demo-client-001";
+        $_SESSION["role"] = "CLIENT";
+        $_SESSION["demo_mode"] = true;
 
-        if ($user["ROLE"] === "CLIENT") {
+        // Informations fictives pour les pages de démonstration
+        $_SESSION["demo_user"] = [
+            "nom" => "Client Démonstration",
+            "email" => $email_demo,
+            "numero_compte" => "BS-DEMO-0001",
+            "solde" => 10000.00,
+            "devise" => "MAD"
+        ];
 
-    header("Location: dashboard.php");
-
-} elseif ($user["ROLE"] === "CONSEILLER") {
-
-    header("Location: conseiller.php");
-
-} elseif ($user["ROLE"] === "ADMINISTRATEUR") {
-
-    header("Location: admin.php");
-
-} else {
-
-    die("Rôle utilisateur inconnu.");
-}
-
-exit;
+        header("Location: dashboard.php");
+        exit;
 
     } else {
-
-        $erreur = "Email ou mot de passe incorrect.";
+        $erreur = "Email ou mot de passe incorrect. Utilisez le compte de démonstration.";
     }
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
